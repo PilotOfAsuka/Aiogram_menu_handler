@@ -1,6 +1,6 @@
 from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery
-from misc import dp, bot
+from misc import dp
 from aiogram import F
 from menu.menu import main_menu_keyboard, scrath_menu_keyboard, main_menu_list
 
@@ -22,6 +22,7 @@ async def message_handler(msg: Message):
 
 @dp.callback_query(F.data == main_menu_list[0])
 async def main_menu_handler(callback: CallbackQuery):
-    await callback.message.edit_reply_markup(inline_message_id=str(callback.message.message_id),reply_markup=scrath_menu_keyboard)
+    await callback.message.edit_reply_markup(inline_message_id=str(callback.message.message_id),
+                                             reply_markup=scrath_menu_keyboard)
     pass
 
